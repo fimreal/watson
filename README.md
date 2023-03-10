@@ -7,6 +7,8 @@
 
 #### 食用方法
 
+docker.io/epurs/watson:latest
+
 ```bash
 # watson --help
 Usage of watson

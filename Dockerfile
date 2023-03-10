@@ -1,7 +1,7 @@
 FROM golang:latest as builder
 COPY . /srv/watson
 RUN cd /srv/watson &&\
-    CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags \'-s -w\' -o bin/watson &&\
+    GOPROXY=https://goproxy.cn,direct CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags '-s -w' -o bin/watson &&\
     ls -l bin 
 
 #
