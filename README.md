@@ -13,6 +13,7 @@ docker.io/epurs/watson:latest
 # watson --help
 Usage of watson
       --ddns string        give a domain to enable ddns
+      --ddns.spec string   crond schedule (default "*/10 * * * *")
   -d, --debug              enable debug
   -p, --port string        serve address (default "6788")
   -P, --provider string    specify dns provider (default "tencentcloud")

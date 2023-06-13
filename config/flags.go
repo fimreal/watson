@@ -17,6 +17,7 @@ func init() {
 	pflag.String("secretkey", "", `provider's secret key`)
 
 	pflag.String("ddns", "", "give a domain to enable ddns")
+	pflag.String("ddns.spec", "*/10 * * * *", "crond schedule")
 
 	//
 	pflag.ErrHelp = errors.New("")

@@ -11,6 +11,7 @@ import (
 	"github.com/fimreal/watson/component/utils"
 	"github.com/fimreal/watson/config"
 	"github.com/fimreal/watson/providers"
+	"github.com/spf13/viper"
 )
 
 func Hold(domain string) {
@@ -32,7 +33,8 @@ func Hold(domain string) {
 	if err = DDNS(p, zone, r); err != nil {
 		ezap.Fatal(err)
 	}
-	crond.Run("*/10 * * * *", func() {
+	spec := viper.GetString("ddns.spec")
+	crond.Run(spec, func() {
 		_ = (DDNS(p, zone, r))
 	})
 }
