@@ -2,6 +2,7 @@ package config
 
 import (
 	"errors"
+	"strings"
 
 	"github.com/fimreal/goutils/ezap"
 	"github.com/spf13/pflag"
@@ -21,6 +22,8 @@ func init() {
 
 	//
 	pflag.ErrHelp = errors.New("")
+	// shell 不允许带'.'的环境变量，识别环境变量时去除'.'
+	viper.SetEnvKeyReplacer(strings.NewReplacer(`.`, ``))
 	viper.AutomaticEnv()
 	pflag.Parse()
 	viper.BindPFlags(pflag.CommandLine)
